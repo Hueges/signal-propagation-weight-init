@@ -68,7 +68,8 @@ class vizualization:
         axes[1].axhline(1, color='red', linestyle='--')
 
         plt.tight_layout()
-        fig.subplots_adjust(top=0.93)
+        fig.subplots_adjust(top=0.88)
+        plt.savefig(f"boxplots_{self.activation_name}.png", dpi=150, bbox_inches='tight')
         plt.show()
 
 

@@ -63,6 +63,8 @@ The analysis shows how different initialization schemes affect:
 - Variance propagation through network layers
 - Training stability and convergence
 
+![Box plots comparing initialization methods](boxplots_relu.png)
+
 ## Contributing
 
 Feel free to open issues or submit pull requests for improvements.

@@ -1,13 +1,15 @@
 import torch, time
 from Simulator import MonteCarloSimulator
-from model import DynamicNN
+from Model import DynamicNN
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-from Vizuelizacija import vizualization
+from Vizualization import vizualization
 
+def my_network(init_type):
+        return DynamicNN(input_dim=30,init_type=init_type, hidden_dim=[32,32,32,16],act_type='relu')
 
 
 if __name__ == "__main__":
@@ -15,11 +17,8 @@ if __name__ == "__main__":
 
     begin_time = time.perf_counter()
 
-    def my_network(init_type):
-        return DynamicNN(input_dim=300,init_type=init_type, hidden_dim=[32,32,32,16],act_type='relu')
-
     #X, y = make_classification(n_samples=1000, n_features=300)
-    X, y = make_classification(n_samples=100000, n_features=300)
+    X, y = make_classification(n_samples=10000, n_features=30)
     scaler = StandardScaler()
     X = torch.tensor(scaler.fit_transform(X), dtype=torch.float32)
     y = torch.tensor(y, dtype=torch.float32).unsqueeze(1)
@@ -28,7 +27,7 @@ if __name__ == "__main__":
     sim = MonteCarloSimulator(
         model_builder = my_network,
         train_loader=train_loader,
-        num_runs=100,
+        num_runs=30,
     )
 
     rezultati_kaiming = sim.run_simulation(init_type='kaiming')
