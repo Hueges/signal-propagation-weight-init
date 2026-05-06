@@ -133,3 +133,4 @@ dmypy.json
 .idea/
 
 modelVezba.py
+tests/

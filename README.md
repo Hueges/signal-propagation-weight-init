@@ -23,19 +23,6 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## Testing
-
-Run tests to verify the code works correctly:
-```bash
-pytest
-```
-
-Tests cover:
-- Model initialization and forward passes
-- Metrics collection (gradients, variances, activations)
-- Monte Carlo simulation
-- Data visualization preparation
-
 ## Usage
 
 Run the main analysis:
